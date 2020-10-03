@@ -13,8 +13,33 @@
         <option>Select....</option>
       </select>
 </div>
-<div class="col-sm-6 form-group row mt-4 px-0">
-  <label for="Genre" class="form-label col-sm-2">Playlists</label>
-  <select name="" id="select_playlist" class="form-control form-control-sm col-sm-10">
+  <div class="col-sm-6 form-group row mt-4 px-0">
+    <label for="Genre" class="form-label col-sm-2">Playlists</label>
+    <select name="" id="select_playlist" class="form-control form-control-sm col-sm-10">
     <option>Select....</option>
-  </select>
+    </select>
+  <div class="col-sm-6 form-group row mt-4 px-0">
+    <button type="submit" id="btn_submit" class="btn btn-success col-sm-12">Search</button>
+  </div>
+  </form>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6 px-0">
+      <div class="list-group song-list">
+        <a href="0" class="list-group-item list-group-item-action list-group-item-light">Song 1</a>
+      </div>
+      <div class="list-group song-list">
+        <a href="0" class="list-group-item list-group-item-action list-group-item-light">Song 2</a>
+      </div>
+    </div>
+    <div class="offset-md-1 col-sm-4" id="song-detail">
+      <div class="row col-sm-12 px-0">
+        <img src="testImage.jpg" alt="">
+      </div>
+      <div class="row col-sm-12 px-0">
+        <label for="Genre" class="form-label col-sm-12">Song Title:</label>
+      </div>
+      <div class="row col-sm-12 px-0">
+        <label for="artist" class="form-label col-sm-12">By xxx:</label>
+      </div>
+    </div>
