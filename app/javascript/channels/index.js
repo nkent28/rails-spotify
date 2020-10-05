@@ -25,4 +25,17 @@ const APIController = (function() {
       return data.access_token;
     }
 
+  const _getGenres = async (token) => {
+
+    const result = await fetch('https://api.spotify.com/v1/browse/categories?locale=sv_US', {
+        method: 'GET',
+        headers: { 'Authorization' : 'Bearer' + token}
+    });
+
+    const data = await result.json();
+    return data.categories.items;
+  }
+
 })();
+
+
