@@ -73,7 +73,24 @@ const APIController = (function() {
       return data;
     }
 
-
+    return {
+      getToken() {
+        return _getToken();
+      },
+      getGenres(token) {
+        return _getGenres(token);
+      },
+      getPlaylistbyGenre(token, genreId) {
+        return _getPlaylistByGenre(token, genreId);
+      },
+      getTracks(token, tracksEndPoint) {
+        return _getTracks(token, tracksEndPoint);
+      },
+      getTrack(token, trackEndpoint) {
+        return _getTrack(token, trackEndpoint);
+      }
+      }
+    } //CODE IS READY TO PUSH FOR TOMORROW, CHECK GITHUB
 })();
 
 
