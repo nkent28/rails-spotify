@@ -174,4 +174,48 @@ const UIController = (function() {
      }
   }
 
+})();
+
+const APPController = (function(UICtrl, APICtrl) {
+
+  // get input field object ref
+  const DOMInputs = UICtrl.inputField();
+
+  // get genres on page load
+  const loadGenres = async () => {
+    // get the token
+    const token = await APICtrl.getToken();
+    // store the token onto the page
+    UICtrl.storeToken(token);
+    // get the genres
+    const genres = await APICtrl.getGenres(token);
+    // populate our genres select element
+    genres.forEach(element => UICtrl.createGenre(element.name, element.id));
+  }
+
+  //create genre change event listener
+  DOMInputs.genre.addEventListener('change', async () => {
+
+    //when user changes genres, we need to reset the subsequent fields
+    UICtrl.resetPlaylist();
+    //get the token, add method to store the token on the page so we don't have to keep hitting the api for the token
+    const token = UICtrl.getStoredToken().token;
+    //get the genre select field
+    const genreSelect = UICtrl.InputField().genre;
+    // get the selected genreId
+    const genreId = genreSelect.options[genreSelect.selectedIndex].value;
+    // get the playlist data from spotify based on the genre
+    const playlist = await APICtrl.getPlaylistbyGenre(token, genreId);
+    // load the playlist select field
+    console.log(playlist)
+
+  });
+
+// create submit button click event listener
+  DOMInputs.submit.addEventListener('click', async (e) => {
+    // prevent page reset
+    e.preventDefault();
+
+  });
+
 
